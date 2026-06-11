@@ -33,7 +33,7 @@ function mostrarListaAtualizada() {
         sectionItens.innerHTML = sectionItens.innerHTML + `
             <div class="item">
                 <div>
-                    <input type="checkbox" id="item-${i}" ${itens[i.concluido === true && "checked"]}>
+                    <input type="checkbox" id="item-${i}" ${itens[i].concluido === true && "checked"}>
             
                     <div class="checkbox-customizada" onclick="marcarItem(${i})">
                         <img src="imagens/checked.svg" alt="checkbox">
@@ -55,7 +55,7 @@ function apagarItem(indice) {
     mostrarListaAtualizada()
 }
 
-function marcarItem() {
-    itens[indice].marcado = !itens[indice].marcado 
+function marcarItem(indice) {
+    itens[indice].concluido = !itens[indice].concluido 
     mostrarListaAtualizada()
 }
