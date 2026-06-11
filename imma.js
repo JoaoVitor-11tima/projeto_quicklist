@@ -27,6 +27,8 @@ function mostrarListaAtualizada() {
 
     sectionItens.innerHTML = ""
 
+    itens.sort((itemA, itemB) => Number(itemA.concluido) - Number(itemB.concluido))
+
     for (let i = 0; i <= itens.length; i++) {
         sectionItens.innerHTML = sectionItens.innerHTML + `
             <div class="item">
@@ -37,7 +39,7 @@ function mostrarListaAtualizada() {
                         <img src="imagens/checked.svg" alt="checkbox">
                     </div>
 
-                    <label for="item-${i}">${itens[i].descricao}</label>
+                    <label for="item-${i}" onclick="marcarItem(${i})">${itens[i].descricao}</label> 
                 </div>
 
                 <button onclick="apagarItem(${i})">
